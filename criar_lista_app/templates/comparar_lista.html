@@ -1,0 +1,172 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block canonical %}
+<link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dropdowns/">
+{% endblock %}
+
+{% block favicons %}
+<!--
+<link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+-->
+<meta name="theme-color" content="#712cf9">
+{% endblock %}
+{% block style %}
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  .b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  }
+
+  .b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+  }
+
+  .bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+  }
+
+  .nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+  }
+
+  .nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+</style>
+{% endblock %}
+
+{% block custon_style %}
+<link href="dropdowns.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<form method='POST' enctype="multipart/form-data">
+  {% csrf_token %}
+  <br>
+  <div class="row g-2">
+    <div class="col-md">
+        <div class="mb-3">
+            <label class="form-label" for="customFile">Lista 01</label>
+            <input type="file" accept=".json" name="arquivo_json_01" class="form-control" id="customFile">
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="mb-3">
+            <label class="form-label" for="customFile">Lista 02</label>
+            <input type="file" accept=".json" name="arquivo_json_02" class="form-control" id="customFile">
+        </div>        
+    </div>
+  </div>
+  <!--
+  <fieldset class="mb-3">
+    <legend>Comparar: </legend>
+    <div class="mb-3 form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="nome_arquivo" name="join_nome_arquivo" value="nome_sem_extencao" checked>
+        <label class="form-check-label" for="nome_arquivo">Ver depois</label>
+    </div>
+    <div class="mb-3 form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="tamanho_arquivo" name="join_tamanho_arquivo" value="tamanho_arquivo" checked>
+        <label class="form-check-label" for="tamanho_arquivo">Ver depois</label>
+    </div>
+    <br>
+    <legend>Mostrar Colunas: </legend>
+    <div class="mb-3 form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="coluna_hd" name="coluna_origem_x" value="origem_x" checked>
+        <label class="form-check-label" for="coluna_origem_x">Ver depois</label>
+    </div>
+    <div class="mb-3 form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="coluna_drive_x" name="coluna_drive_x" value="drive_x" checked>
+        <label class="form-check-label" for="coluna_drive_x">Ver depois</label>
+    </div>
+    <div class="mb-3 form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="coluna_nome_sem_extencao" name="coluna_nome_sem_extencao" value="nome_sem_extencao" checked>
+        <label class="form-check-label" for="coluna_nome_sem_extencao">Ver depois</label>
+    </div>
+    <div class="mb-3 form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="coluna_extencao_arquivo_x" name="coluna_extencao_arquivo_x" value="extencao_arquivo_x" checked>
+        <label class="form-check-label" for="coluna_extencao_arquivo_x">Ver depois</label>
+    </div>
+    <div class="mb-3 form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="coluna_caminho_absoluto_x" name="coluna_caminho_absoluto_x" value="caminho_absoluto_x" checked>
+        <label class="form-check-label" for="coluna_caminho_absoluto_x">Ver depois</label>
+    </div>
+    <div class="mb-3 form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="coluna_tamanho_arquivo" name="coluna_tamanho_arquivo" value="tamanho_arquivo" checked>
+        <label class="form-check-label" for="coluna_tamanho_arquivo">Ver depois</label>
+    </div>
+  </fieldset>
+  -->
+  <br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<br>
+
+{% if resultado != '' %}
+<div class="bd-example-snippet bd-code-snippet"><div class="bd-example">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">HD</th>
+        <th scope="col">Drive</th>
+        <th scope="col">Arquivo</th>
+        <th scope="col">Extensão</th>
+        <th scope="col">Caminho Absoluto 1</th>
+        <th scope="col">Caminho Absoluto 2</th>
+    </tr>
+      </thead>
+      <tbody>
+        {% for item in resultado %}
+        {% if item.0 != 'origem_x' %}
+        <tr>        
+            <th scope="row">{{item.0}}</th>
+            <td>{{item.1}}</td>
+            <td>{{item.2}}</td>
+            <td>{{item.3}}</td>
+            <td>{{item.4}}</td>
+            <td>{{item.5}}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+{% endif %}
+
+{% endblock %}
